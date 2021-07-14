@@ -1,5 +1,6 @@
 const notesData = require('../db/db.json');
-
+const path = require('path');
+const fs = require('fs');
 
 module.exports = (app) => {
 
@@ -8,7 +9,10 @@ module.exports = (app) => {
 
     // Add a note 
     app.post('/api/notes', (req, res) => {
-        notesData.push(req.body);
+        console.log(`Request body: ${req.body.newTitle}`); 
+        fs.appendFile(path.join(__dirname, '../db/db.json'), JSON.stringify(req.body), (err) => {
+            if (err) throw err;
+        });
     });
 
     app.post('/api/clear', (req, res) => {

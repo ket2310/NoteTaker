@@ -17,24 +17,24 @@
   <nav class="navbar navbar-dark bg-dark">
     <a class="navbar-brand" href="/">Note Taker </a>
     <div class="icons">
-      <button id="savNote" class="saveBtn bi bi-sav2">Save Note
+      <div class="icons">
         <i class="fas fa-save text-light save-note"></i>
-      </button>
-      <button id="addNote">Add Note
         <i class="fas fa-plus text-light new-note"></i>
-      </button>
+      </div>
     </div>
   </nav>
   <div class="container-fluid">
     <div class="row">
       <div class="col-4 list-container">
         <div class="card">
-          <ul class="list-group"></ul>
+          <ul id="notesList" class="list-group"></ul>
         </div>
       </div>
       <div class="col-8">
-        <input class="note-title" placeholder="Note Title" maxlength="28" type="text" />
-        <textarea class="note-textarea" placeholder="Note Text"></textarea>
+        <form role="form">
+          <input class="note-title" placeholder="Note Title" maxlength="28" type="text" />
+          <textarea class="note-textarea" placeholder="Note Text"></textarea>
+        </form>
       </div>
     </div>
   </div>
