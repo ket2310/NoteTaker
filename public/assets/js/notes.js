@@ -39,14 +39,10 @@ savNoteEl.addEventListener('click', (e) => {
     body: JSON.stringify(newNote),
   })
     .then((response) => response.json())
-    .then((data) => {
-      alert('Your note has been saved.');
-
-    })
     .catch((error) => {
       console.error('Error:', error);
     });
-
+  runNoteQuery();
 });
 
 
@@ -65,8 +61,7 @@ titleEl.addEventListener('keyup', function () {
 addNoteEl.addEventListener('click', clearNote);
 
 const runNoteQuery = () => {
-  // Fetch function GET the data associated with it (initially set to localhost)
-  fetch('/api/notes', {
+    fetch('/api/notes', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -90,7 +85,7 @@ const runNoteQuery = () => {
         titleItemEl.textContent = notesData[i].title;
 
         listItem.appendChild(titleItemEl);
-     
+
         // Append listItem to tableList
         notesListEl.appendChild(listItem);
       }
