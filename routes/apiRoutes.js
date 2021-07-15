@@ -1,6 +1,7 @@
 const notesData = require('../db/db.json');
 const path = require('path');
 const fs = require('fs');
+const { v4: uuidv4 } = require('uuid');
 
 module.exports = (app) => {
     console.log(notesData)
@@ -11,6 +12,9 @@ module.exports = (app) => {
     app.post('/api/notes', (req, res) => {
         fs.readFile(path.join(__dirname, '../db/db.json'), function (err, data) {
             var json = JSON.parse(data);
+            var aNote = req.body;
+            aNote.id = uuidv4();
+            console.log(aNote);
             json.push(req.body);
             console.log(json);
             fs.writeFile(path.join(__dirname, '../db/db.json'), JSON.stringify(json), function (err) {

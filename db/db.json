@@ -1,7 +1,1 @@
-[
-    {
-        "id": 1,
-        "title": "Test Title",
-        "text": "Test text"
-    }
-]
+[{"id":1,"title":"Test Title","text":"Test text"},{"title":"Trash day","text":"take out trash","id":"b9517ad3-3c4d-4c9c-b197-fea6bafa810b"}]
